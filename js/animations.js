@@ -43,4 +43,10 @@
     });
 
     elements.forEach(element => observer.observe(element));
+
+    // Fail-safe for local previews or browsers where observer callbacks are delayed.
+    window.setTimeout(() => {
+        elements.forEach(element => element.classList.add('is-visible'));
+        observer.disconnect();
+    }, 1200);
 })();

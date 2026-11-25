@@ -1,4 +1,4 @@
-﻿/* Header responsive */
+/* Header responsive */
 @media (max-width: 1050px) {
     .header-container { gap: 16px; }
     .nav-menu { gap: 16px; }
@@ -185,17 +185,19 @@
     .footer-whatsapp { width: 100%; max-width: 330px; }
 }
 @media (max-width: 900px) {
-    .hero-carousel { min-height: 370px; }
+    .hero-carousel-image-frame { height: 370px; min-height: 370px; }
 }
 @media (max-width: 680px) {
-    .hero-carousel { min-height: 300px; border-radius: 22px 22px 60px 22px; }
-    .hero-carousel-controls { right: 12px; bottom: 12px; gap: 8px; padding: 6px 8px; }
-    .hero-carousel-arrow { width: 32px; height: 32px; }
+    .hero-carousel-slide .hero-container { min-height: 0; }
+    .hero-carousel-image-frame { height: 300px; min-height: 0; border-radius: 22px 22px 60px 22px; }
+    .hero-carousel-controls { right: 12px; bottom: 12px; gap: 7px; padding: 6px 8px; }
+    .hero-carousel-arrow, .hero-carousel-toggle { width: 31px; height: 31px; }
+    .hero-carousel-dots { gap: 6px; }
 }
 @media (max-width: 360px) {
-    .hero-carousel { min-height: 260px; }
-    .hero-carousel-controls { right: 9px; bottom: 9px; }
+    .hero-carousel-image-frame { height: 260px; }
+    .hero-carousel-controls { right: 9px; bottom: 9px; gap: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .hero-carousel-slide, .hero-carousel-arrow, .hero-carousel-dot { transition: none; }
+    .hero-carousel-track, .hero-carousel-arrow, .hero-carousel-toggle, .hero-carousel-dot { transition: none; }
 }

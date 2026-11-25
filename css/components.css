@@ -1,4 +1,4 @@
-﻿/* Header */
+/* Header */
 .header {
     position: sticky;
     top: 0;
@@ -216,24 +216,27 @@
 .footer-bottom-inner > p { color: #D6E9DF; font-size: 11px; }
 .footer-legal { display: flex; flex-wrap: wrap; gap: 20px; color: #D6E9DF; font-size: 11px; }
 .footer-legal em { color: rgba(214, 233, 223, .68); font-size: 10px; font-style: normal; }
-/* Carrusel del Hero */
-.hero-carousel { position: relative; min-height: 430px; overflow: hidden; isolation: isolate; border-radius: 26px 26px 90px 26px; background: #e6f2eb; box-shadow: 0 22px 55px rgba(23, 43, 53, .13); touch-action: pan-y; }
-.hero-carousel-slides { position: absolute; inset: 0; }
-.hero-carousel-slide { position: absolute; inset: 0; margin: 0; opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility .45s ease; }
-.hero-carousel-slide.is-active { opacity: 1; visibility: visible; }
+/* Carrusel completo del Hero */
+.hero-carousel { position: relative; width: 100%; overflow: hidden; isolation: isolate; touch-action: pan-y; }
+.hero-carousel-track { display: flex; width: 300%; align-items: stretch; transition: transform .65s cubic-bezier(.22,.7,.2,1); }
+.hero-carousel[data-active-slide="1"] .hero-carousel-track { transform: translateX(-33.333333%); }
+.hero-carousel[data-active-slide="2"] .hero-carousel-track { transform: translateX(-66.666667%); }
+.hero-carousel-slide { width: 33.333333%; flex: 0 0 33.333333%; min-width: 0; margin: 0; }
+.hero-carousel-slide .hero-container { width: min(92%, var(--container-width)); }
+.hero-carousel-image-frame { position: relative; height: clamp(340px, 34vw, 430px); min-height: 340px; overflow: hidden; border-radius: 26px 26px 90px 26px; background: #e6f2eb; box-shadow: 0 22px 55px rgba(23,43,53,.13); }
 .hero-carousel-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
 .hero-carousel-slide:nth-child(2) .hero-carousel-image { object-position: center 55%; }
 .hero-carousel-slide:nth-child(3) .hero-carousel-image { object-position: center 52%; }
-.hero-carousel-controls { position: absolute; z-index: 2; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 11px; padding: 7px 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; background: rgba(7, 42, 36, .72); box-shadow: 0 5px 16px rgba(0,0,0,.16); backdrop-filter: blur(8px); }
-.hero-carousel-arrow { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid rgba(255,255,255,.48); border-radius: 50%; background: transparent; color: var(--white); cursor: pointer; transition: background .2s ease, color .2s ease; }
-.hero-carousel-arrow:hover, .hero-carousel-arrow:focus-visible { background: var(--white); color: var(--secondary-color); }
+.hero-carousel-controls { position: absolute; z-index: 2; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 9px; padding: 7px 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; background: rgba(7,42,36,.72); box-shadow: 0 5px 16px rgba(0,0,0,.16); backdrop-filter: blur(8px); }
+.hero-carousel-arrow, .hero-carousel-toggle { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.48); border-radius: 50%; background: transparent; color: var(--white); cursor: pointer; transition: background .2s ease, color .2s ease; }
+.hero-carousel-arrow:hover, .hero-carousel-arrow:focus-visible, .hero-carousel-toggle:hover, .hero-carousel-toggle:focus-visible { background: var(--white); color: var(--secondary-color); }
 .hero-carousel-arrow svg { width: 18px; height: 18px; }
+.hero-carousel-toggle svg { width: 16px; height: 16px; }
+.hero-carousel-toggle [hidden] { display: none; }
 .hero-carousel-dots { display: flex; align-items: center; gap: 7px; }
 .hero-carousel-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.6); cursor: pointer; transition: width .2s ease, background .2s ease; }
 .hero-carousel-dot.is-active { width: 21px; background: var(--accent-color); }
-.hero-carousel:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 4px; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); border: 0; }
-/* Aparición progresiva controlada por animations.js */
+.hero-carousel:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 4px; }/* Aparición progresiva controlada por animations.js */
 .js-reveal-ready .js-reveal {
     animation: none !important;
     opacity: 0;
