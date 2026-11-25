@@ -1,0 +1,65 @@
+
+/* =================================
+   CONFIGURACIÓN GENERAL
+================================= */
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/InterVariable.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+:root {
+    --primary-color: #078568;
+    --secondary-color: #075447;
+    --accent-color: #83C94A;
+
+    --text-color: #172B35;
+    --muted-color: #66777A;
+
+    --white: #FFFFFF;
+    --background-color: #F7FAF8;
+
+    --font-family: 'Inter', sans-serif;
+
+    --container-width: 1250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: var(--white);
+}
+
+img,
+picture,
+video {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: min(92%, var(--container-width));
+    margin: 0 auto;
+}
